@@ -24,7 +24,7 @@ export class LoginService {
                  console.log("Success !!!:\n"); 
                  console.log(response); 
                  if(response.succeeded) {
-                     this.router.navigate(['/home']);   
+                     this.router.navigate(['/dashboard']);   
                  }
             }, 
             error => {

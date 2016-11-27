@@ -1,0 +1,21 @@
+<h3>
+   Draft Central Overview
+   <hr> 
+</h3>
+<div>
+    <table border="1">
+    <tr>
+        </th>Name</th>
+        </th>Avg Pick</th>
+        </th>Avg Round</th>
+        </th>Percent Drafted</th>
+    </tr>
+    <tr *ngFor="let player of players">
+        <td>{{player.name}}</td>
+        <td>{{player.avgPick}}</td>
+        <td>{{player.avgRound}}</td>
+        <td>{{player.drafted | percent}}</td>
+    </tr>
+    </table>
+</div>
+
