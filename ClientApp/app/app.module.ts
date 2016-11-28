@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { DashboardNavMenuComponent } from './components/dashboard/dashboardServices/dashboardNavmenu/dashboardNavmenu.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboardServices/dashboardHome/dashboardHome.component';
+import { DashboardDraftComponent } from './components/dashboard/dashboardServices/dashboardDraft/dashboardDraft.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
@@ -24,6 +25,7 @@ import { CounterComponent } from './components/counter/counter.component';
         DashboardComponent, 
         DashboardNavMenuComponent,
         DashboardHomeComponent, 
+        DashboardDraftComponent,
         CounterComponent,
         FetchDataComponent,
         HomeComponent
@@ -35,8 +37,9 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'dashboard', component: DashboardComponent, children: [
-                {path: '', component: DashboardHomeComponent},
-                {path: '**', redirectTo: '', pathMatch: 'full'}
+                { path: '', component: DashboardHomeComponent },
+                { path: 'draft', component: DashboardDraftComponent },
+                { path: '**', redirectTo: '', pathMatch: 'full' }
             ]},
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
