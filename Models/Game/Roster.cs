@@ -9,8 +9,6 @@ namespace EFantasySports.Models.Game
         [Key]
         public int RosterID { get; set; }
         public int LeagueID { get; set; }
-        public int TeamID { get; set; } 
-        public League League { get; set; }
-        public Team Team { get; set; }
+        public virtual League League { get; set; }
     }
 }
