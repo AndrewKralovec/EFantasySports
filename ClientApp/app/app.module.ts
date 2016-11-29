@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
 import { FormsModule }   from '@angular/forms';
+import { MaterializeDirective } from 'angular2-materialize';
 
 import { AppComponent } from './components/app/app.component'
 import { HeaderComponent } from './components/header/header.component'
@@ -19,6 +20,7 @@ import { CounterComponent } from './components/counter/counter.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
+        MaterializeDirective,
         AppComponent,
         HeaderComponent, 
         FooterComponent, 

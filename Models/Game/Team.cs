@@ -4,14 +4,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EFantasySports.Models.Game
 {
-    public class Team
-    {
+    public class Team{
         [Key]
         public int TeamID { get; set; }
-        public int UserID { get; set; }
+        public int ManagerID { get; set; }
         public int LeagueID { get; set; }
         public string TeamName { get; set; }
-        public virtual ICollection<Team> Players { get; set; }
+        public virtual Manager Manager { get; set; }
+        public virtual League League { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
 
     }
 }

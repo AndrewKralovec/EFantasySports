@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using EFantasySports.Data ; 
 using EFantasySports.Models.Account; 
+using EFantasySports.Models.Game; 
 
 namespace EFantasySports
 {
@@ -31,6 +32,8 @@ namespace EFantasySports
             // Add Context services
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("AccountConnection")));
+            services.AddDbContext<GameDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("GameConnection")));
             // Add Identify servies 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -41,7 +44,7 @@ namespace EFantasySports
             });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, GameDbContext context) {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             // Config hot module replacement
@@ -66,7 +69,7 @@ namespace EFantasySports
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
-            // DbInitializer.Initialize(context); 
+            //GameInitializer.Initialize(context); 
         }
     }
 }
