@@ -1,0 +1,63 @@
+.side-nav {
+   position: relative;
+}
+.side-nav li {
+    line-height: 45px;
+}
+.profile-image {
+    margin-top: 10%;
+    margin-left: 26%;
+}
+.profile-name{
+    color: #00bcd4;
+    font-weight: bolder;
+    margin-left: 6%;
+    font-size: 14px;
+}
+.profile-last-login{
+    font-size: 12px;
+}
+
+.pin-top {
+    display: none;
+}
+
+.pinned{
+    position: fixed !important;
+    left: 97%;
+    z-index: 1000;
+    margin-top: -3%!important;
+    background-color: grey !important;
+    opacity: 0.6;
+    font-size: 1px;
+    border-radius: 5px;
+    border: none;
+}
+
+.pinned:hover{
+    background-color: #00bcd4 !important;
+    opacity: 0.7;
+}
+#scroll-arrow {
+    color: #ddd;
+}
+#scroll-arrow:hover {
+    color: #fff;
+}
+.dashIcon {
+    vertical-align: middle;
+    margin-right: 10%;
+}
+.navBtn {
+    vertical-align: middle;
+    color: #444;
+    font-size: 14px;
+}
+.menu-item-link{
+    height: 45px; 
+    line-height: 45px; 
+    vertical-align: middle;
+}
+.side-nav.fixed a {
+    padding: 0 30pc 0 0;
+}

@@ -1,43 +1,64 @@
-<div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]="['/home']">EFantasySports</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse'>
-            <ul class='nav navbar-nav'>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['.']">
-                        <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['league']">
-                        <span class='glyphicon glyphicon-education'></span> League
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['team']">
-                        <span class='glyphicon glyphicon-th-list'></span> My Team
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['matchups']">
-                        <span class='glyphicon glyphicon-th-list'></span> Matchups
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['draft']">
-                        <span class='glyphicon glyphicon-th-list'></span> Draft
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="grey lighten-4 col s2 m2 ">
+    <ul>
+        <li>
+            <div>
+                <a
+                    class="waves-effect waves-teal menu-item-link col s12 m12"
+                    routerLinkActive="grey lighten-2"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['.']" >
+                    <i class="tiny material-icons dashIcon grey-text">dashboard</i>
+                    <span class='navBtn'>Home</span> 
+                </a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a
+                    class="waves-effect waves-teal menu-item-link col s12 m12"
+                    routerLinkActive="grey lighten-2"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['league']" >
+                    <i class="tiny material-icons dashIcon grey-text">view_quilt</i>
+                    <span class='navBtn'>League</span> 
+                </a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a
+                    class="waves-effect waves-teal menu-item-link col s12 m12"
+                    routerLinkActive="grey lighten-2"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['team']" >
+                    <i class="tiny material-icons dashIcon grey-text">supervisor_account</i>
+                    <span class='navBtn'>My Team</span> 
+                </a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a
+                    class="waves-effect waves-teal menu-item-link col s12 m12"
+                    routerLinkActive="grey lighten-2"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['matchups']" >
+                    <i class="tiny material-icons dashIcon grey-text">view_module</i>
+                    <span class='navBtn'>Matchups</span> 
+                </a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a
+                    class="waves-effect waves-teal menu-item-link col s12 m12"
+                    routerLinkActive="grey lighten-2"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['draft']" >
+                    <i class="tiny material-icons dashIcon grey-text">repeat</i>
+                    <span class='navBtn'>Draft</span> 
+                </a>
+            </div>
+        </li>
+    </ul>
 </div>

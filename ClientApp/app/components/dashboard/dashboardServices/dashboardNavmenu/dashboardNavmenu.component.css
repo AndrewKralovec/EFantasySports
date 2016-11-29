@@ -1,59 +1,63 @@
-li .glyphicon {
-    margin-right: 10px;
+.side-nav {
+   position: relative;
+}
+.side-nav li {
+    line-height: 45px;
+}
+.profile-image {
+    margin-top: 10%;
+    margin-left: 26%;
+}
+.profile-name{
+    color: #00bcd4;
+    font-weight: bolder;
+    margin-left: 6%;
+    font-size: 14px;
+}
+.profile-last-login{
+    font-size: 12px;
 }
 
-/* Highlighting rules for nav menu items */
-li.link-active a,
-li.link-active a:hover,
-li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+.pin-top {
+    display: none;
 }
 
-/* Keep the nav menu independent of scrolling and on top of other items */
-.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+.pinned{
+    position: fixed !important;
+    left: 97%;
+    z-index: 1000;
+    margin-top: -3%!important;
+    background-color: grey !important;
+    opacity: 0.6;
+    font-size: 1px;
+    border-radius: 5px;
+    border: none;
 }
 
-@media (min-width: 768px) {
-    /* On small screens, convert the nav menu to a vertical sidebar */
-    .main-nav {
-        height: 100%;
-        width: calc(25% - 20px);
-    }
-    .navbar {
-        border-radius: 0px;
-        border-width: 0px;
-        height: 100%;
-    }
-    .navbar-header {
-        float: none;
-    }
-    .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0px;
-    }
-    .navbar ul {
-        float: none;
-    }
-    .navbar li {
-        float: none;
-        font-size: 15px;
-        margin: 6px;
-    }
-    .navbar li a {
-        padding: 10px 16px;
-        border-radius: 4px;
-    }
-    .navbar a {
-        /* If a menu item's text is too long, truncate it */
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.pinned:hover{
+    background-color: #00bcd4 !important;
+    opacity: 0.7;
+}
+#scroll-arrow {
+    color: #ddd;
+}
+#scroll-arrow:hover {
+    color: #fff;
+}
+.dashIcon {
+    vertical-align: middle;
+    margin-right: 10%;
+}
+.navBtn {
+    vertical-align: middle;
+    color: #444;
+    font-size: 14px;
+}
+.menu-item-link{
+    height: 45px; 
+    line-height: 45px; 
+    vertical-align: middle;
+}
+.side-nav.fixed a {
+    padding: 0 30pc 0 0;
 }
