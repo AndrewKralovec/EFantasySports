@@ -12,7 +12,7 @@ namespace EFantasySports.Models.Game
         public string TeamName { get; set; }
         public virtual Manager Manager { get; set; }
         public virtual League League { get; set; }
-        public virtual ICollection<Player> Players { get; set; }
+        public virtual ICollection<LeaguePlayer> Players { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardDraftService } from './dashboardDraft.service';
+import { Player } from '../../../../models/player';
 
 @Component({
     selector: 'dashboard-draft',
@@ -8,7 +9,7 @@ import { DashboardDraftService } from './dashboardDraft.service';
     styleUrls: ['./dashboardDraft.component.css']
 })
 export class DashboardDraftComponent implements OnInit {
-    private players:Array<any> = Array(); 
+    private players:Array<Player> = Array(); 
     constructor(private dds:DashboardDraftService){
         
     }

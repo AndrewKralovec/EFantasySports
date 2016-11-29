@@ -13,5 +13,6 @@ namespace EFantasySports.Models.Game
         [ForeignKey("CommissionerID")]
         public virtual Manager Commisoner {get; set;} 
         public virtual ICollection<Team> Teams { get; set; }
+
     }
 }

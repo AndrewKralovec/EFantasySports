@@ -1,21 +1,62 @@
-<h3>
-   Draft Central Overview
-   <hr> 
-</h3>
-<div>
-    <table>
-    <tr>
-        <th>Name</th>
-        <th>Avg Pick</th>
-        <th>Avg Round</th>
-        <th>Percent Drafted</th>
-    </tr>
-    <tr *ngFor="let player of players">
-        <td>{{player.name}}</td>
-        <td>{{player.avgPick}}</td>
-        <td>{{player.avgRound}}</td>
-        <td>{{player.drafted | percent}}</td>
-    </tr>
-    </table>
+<div class="row">
+    <h3>
+        Draft Central Overview
+        <hr> 
+    </h3>
+    <div class="col s5">5
+        <table class="highlight responsive-table">
+            <thead>
+                <tr>
+                    <th data-field="name">Name</th>
+                    <th data-field="pick">Avg Pick</th>
+                    <th data-field="round">Avg Round</th>
+                    <th data-field="draft">Percent Drafted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players">
+                    <td>{{player.name}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            <tbody>
+        </table>
+    </div>
+    <div class="col s7">7
+        <div class="col s6">
+            <div class="card" id="profile-card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <span class="badge pink">Current Team</span>
+                    <img alt="user background" class="activator" src="http://placehold.it/350x150">
+                </div>
+                <div class="card-content">
+                    <img alt="" class="circle responsive-img activator card-profile-image" src="http://placehold.it/350x150">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
+                        <i class="mdi-action-account-circle"></i>
+                    </a> 
+                    <span class="card-title activator grey-text text-darken-4">Team Manager</span>
+                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Andrew Kralovec</p>
+                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Team Manager 
+                        <i class="mdi-navigation-close right"></i>
+                    </span>
+                    <p>Team States</p>
+                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Manager</p>
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">6
+        </div>
+    </div>
 </div>
+
+
 

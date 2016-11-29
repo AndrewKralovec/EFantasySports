@@ -5,13 +5,11 @@ using System.ComponentModel;
 
 namespace EFantasySports.Models.Game
 {
-    public class Player{
+    public class Player {
         [Key]
         public int PlayerID { get; set; }
-        public int? TeamID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Postion { get; set; }
-        public virtual Team Team { get; set; }
     }
 }
