@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LoginService } from './login.service'
 
 @Component({
@@ -6,14 +6,11 @@ import { LoginService } from './login.service'
     providers: [LoginService],
     templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
     constructor(private ls:LoginService){
     }
-    ngOnInit(){
-        /*
-        $("p").click(function(){
-            alert("The paragraph was clicked.");
-        }); */  
+    ngAfterViewInit(){
+        //$('ul.tabs').tabs();
     }
     // Login in user
     login(){

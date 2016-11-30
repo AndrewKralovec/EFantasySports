@@ -2,6 +2,8 @@ import { Component, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { DashboardDraftService } from './dashboardDraft.service';
 import 'rxjs/add/operator/map'; 
 import { Player } from '../../../../models/player';
+import {MaterializeAction} from 'angular2-materialize';
+
 @Component({
     selector: 'dashboard-draft',
     providers:[DashboardDraftService],
@@ -11,6 +13,7 @@ import { Player } from '../../../../models/player';
 export class DashboardDraftComponent implements OnInit {
     private players:Array<Player> = Array(); 
     private draftedPlayer:Array<Player> = Array(); 
+    modalActions = new EventEmitter<string|MaterializeAction>();
     constructor(private dds:DashboardDraftService){
         
     }
@@ -28,6 +31,14 @@ export class DashboardDraftComponent implements OnInit {
         );
     }
     ngAfterViewInit(){
+    }
+    openModal() {
+        console.log('Read');
+        this.modalActions.emit({action:"modal",params:['open']});
+    }
+    closeModal() {
+        console.log('Close');
+        this.modalActions.emit({action:"modal",params:['close']});
     }
     onPick(player:Player, index:number){
         for(let p of this.draftedPlayer){

@@ -1,6 +1,7 @@
 import 'angular2-universal-polyfills/browser';
 import 'materialize-css';
 import 'angular2-materialize';
+//import 'materialize-tags';
 // import 'bootstrap';
 import { enableProdMode } from '@angular/core';
 import { platformUniversalDynamic } from 'angular2-universal';

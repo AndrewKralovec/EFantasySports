@@ -10,6 +10,8 @@
                     <th data-field="id">ID</th>
                     <th data-field="name">Name</th>
                     <th data-field="postion">Postion</th>
+                    <th data-field="draft">Drafted</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +19,7 @@
                     <td>{{player.playerID}}</td>
                     <td>{{player.firstName}}  {{player.lastName}}</td>
                     <td>{{player.postion}}</td>
+                    <td>{{player.drafted}}</td>
                 </tr>
             <tbody>
         </table>
@@ -53,16 +56,18 @@
         </div>
         <div class="col s6">
             <!-- Modal Trigger -->
-            <button data-target="modal1" class="btn">Modal</button>
+            <a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
+            
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
+            <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+            <div class="modal-content">
                 <h4>Modal Header</h4>
                 <p>A bunch of text</p>
-                </div>
-                <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+                <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
             </div>
         </div>
     </div>
