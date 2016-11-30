@@ -3,4 +3,7 @@ export interface Player {
      lastName:string; 
      firstName:string; 
      postion:string ; 
+     teamID?:number; 
+     leagueID?:number; 
+     drafted?:boolean; 
 }

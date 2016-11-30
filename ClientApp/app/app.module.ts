@@ -20,7 +20,6 @@ import { CounterComponent } from './components/counter/counter.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
-        MaterializeDirective,
         AppComponent,
         HeaderComponent, 
         FooterComponent, 
@@ -30,7 +29,8 @@ import { CounterComponent } from './components/counter/counter.component';
         DashboardDraftComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        MaterializeDirective
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.

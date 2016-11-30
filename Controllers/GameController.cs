@@ -14,6 +14,7 @@ namespace EFantasySports.Controllers
         public GameController(GameDbContext context){
             this.context = context; 
         }
+        [HttpGet("[action]")]
         public async Task<IActionResult> getPlayers(){
             return Json(await context.Players.ToListAsync()); 
         }

@@ -1,0 +1,22 @@
+.card {
+    overflow: hidden;
+}
+#profile-card .card-image {
+    height: 150px;
+}
+#profile-card .card-profile-image {
+    width: 70px;
+    position: absolute;
+    top: 110px;
+    z-index: 1;
+    cursor: pointer;
+}
+#profile-card .btn-move-up {
+    position: relative;
+    top: -40px;
+    right: -18px;
+    margin-right: 10px !important;
+}
+.player-selected {
+    background: red; 
+}
