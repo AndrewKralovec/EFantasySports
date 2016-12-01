@@ -11,8 +11,10 @@ namespace EFantasySports.Controllers
     [Route("api/[controller]")]
     public class GameController : Controller {
         private readonly GameDbContext context ; 
+        private readonly DateTime draftTime; 
         public GameController(GameDbContext context){
             this.context = context; 
+            this.draftTime = DateTime.Today.AddHours(22).AddMinutes(35).AddSeconds(59);
         }
         [HttpGet("[action]")]
         public async Task<IActionResult> getPlayers(){
@@ -21,5 +23,14 @@ namespace EFantasySports.Controllers
         public async Task<IActionResult> getTeams(){
             return Json(await context.Leagues.ToListAsync());
         }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> draftPlayer([FromBody] int playerID){
+            int palyerTurn = 0; 
+            if(playerID != palyerTurn){
+
+            }
+            return Json(await context.Players.ToListAsync()); 
+        }
+
     }
 }

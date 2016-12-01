@@ -12,10 +12,9 @@ import {MaterializeAction} from 'angular2-materialize';
 })
 export class DashboardDraftComponent implements OnInit {
     private players:Array<Player> = Array(); 
-    private draftedPlayer:Array<Player> = Array(); 
+    private draftedPlayers:Array<Player> = Array(); 
     modalActions = new EventEmitter<string|MaterializeAction>();
     constructor(private dds:DashboardDraftService){
-        
     }
     ngOnInit(){
         this.dds.getPlayers()
@@ -30,25 +29,7 @@ export class DashboardDraftComponent implements OnInit {
             console.log("Request Finished")
         );
     }
-    ngAfterViewInit(){
-    }
-    openModal() {
-        console.log('Read');
-        this.modalActions.emit({action:"modal",params:['open']});
-    }
-    closeModal() {
-        console.log('Close');
-        this.modalActions.emit({action:"modal",params:['close']});
-    }
     onPick(player:Player, index:number){
-        for(let p of this.draftedPlayer){
-            if(p == player){
-                return ; 
-            }
-        }
-        this.players[index].drafted = true ; 
-        this.draftedPlayer.push(player); 
-        console.log("Drafted Players"); 
-        console.log(this.draftedPlayer); 
+        this.draftedPlayers.push(player); 
     }
 }
