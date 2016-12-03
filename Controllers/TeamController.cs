@@ -21,11 +21,11 @@ namespace EFantasySports.Controllers
         public async Task<IActionResult> getTeam(){
             var x = await context.Teams.ToListAsync();  
 
-            var y = await context.Teams.Include(s => s.LeaguePlayers)
+            var y = await context.Teams.Include(s => s.Players)
                 .SingleOrDefaultAsync(t => t.ManagerID == manager.ManagerID);
 
             var z = await context.Leagues.Include(l => l.Teams)
-                .ThenInclude(t => t.LeaguePlayers)
+                .ThenInclude(t => t.Players)
                 .AsNoTracking()
                 .ToListAsync(); 
 
