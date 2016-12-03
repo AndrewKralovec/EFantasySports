@@ -69,7 +69,7 @@ namespace EFantasySports
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
-            // GameInitializer.Initialize(context); 
+            GameInitializer.Initialize(context); 
         }
     }
 }

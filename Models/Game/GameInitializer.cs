@@ -9,19 +9,15 @@ namespace EFantasySports.Models.Game
         public static void Initialize(GameDbContext context) {
             context.Database.EnsureCreated(); 
             // Set up Team 
-            var manager = new Manager { ManagerName= "Andrew Kralovec" };
+            var manager = new Manager { ManagerName= "John Smith" };
             context.Managers.Add(manager); 
             context.SaveChanges();
 
-            var league = new League { CommissionerID = manager.ManagerID, LeagueName="Kralovec League" }; 
+            var league = new League { CommissionerID = manager.ManagerID, LeagueName="Smith League" }; 
             context.Leagues.Add(league); 
             context.SaveChanges();
 
-            var roster = new Roster { LeagueID = league.LeagueID }; 
-            context.Rosters.Add(roster); 
-            context.SaveChanges();
-
-            var team = new Team { LeagueID = league.LeagueID, ManagerID = manager.ManagerID, TeamName = "Kralovec Team"}; 
+            var team = new Team { LeagueID = league.LeagueID, ManagerID = manager.ManagerID, TeamName = "Lions"}; 
             context.Teams.Add(team); 
             context.SaveChanges(); 
 
@@ -46,6 +42,14 @@ namespace EFantasySports.Models.Game
 
             };
             players.ForEach(p => context.Players.Add(p));  
+            context.SaveChanges();
+
+            var lsp = new List<LeaguePlayer> {
+                new LeaguePlayer{ PlayerID =1 , TeamID=1, LeagueID=1}, 
+                new LeaguePlayer{ PlayerID =3 , TeamID=1, LeagueID=1}, 
+                new LeaguePlayer{ PlayerID =5 , TeamID=1, LeagueID=1}
+            }; 
+            lsp.ForEach(lp => context.LeaguePlayers.Add(lp)); 
             context.SaveChanges();
         }
     }

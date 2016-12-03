@@ -19,4 +19,7 @@ export class HomeComponent implements AfterViewInit {
     registor(){
         this.ls.registor('akrala@yahoo.com', 'Linux01!', 'Linux01!'); 
     }
+    test(){
+        this.ls.test();
+    }
 }

@@ -30,24 +30,18 @@ namespace EFantasySports.Migrations.GameDb
                     LeaguePlayerID = table.Column<int>(nullable: false)
                         .Annotation("Autoincrement", true),
                     LeagueID = table.Column<int>(nullable: false),
+                    PlayerID = table.Column<int>(nullable: false),
                     TeamID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LeaguePlayers", x => x.LeaguePlayerID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Rosters",
-                columns: table => new
-                {
-                    RosterID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    LeagueID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rosters", x => x.RosterID);
+                    table.ForeignKey(
+                        name: "FK_LeaguePlayers_Players_PlayerID",
+                        column: x => x.PlayerID,
+                        principalTable: "Players",
+                        principalColumn: "PlayerID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,6 +85,7 @@ namespace EFantasySports.Migrations.GameDb
                 {
                     LeagueID = table.Column<int>(nullable: false)
                         .Annotation("Autoincrement", true),
+                    CommisonerManagerID = table.Column<int>(nullable: true),
                     CommissionerID = table.Column<int>(nullable: false),
                     LeagueName = table.Column<string>(nullable: true)
                 },
@@ -98,22 +93,27 @@ namespace EFantasySports.Migrations.GameDb
                 {
                     table.PrimaryKey("PK_Leagues", x => x.LeagueID);
                     table.ForeignKey(
-                        name: "FK_Leagues_Managers_CommissionerID",
-                        column: x => x.CommissionerID,
+                        name: "FK_Leagues_Managers_CommisonerManagerID",
+                        column: x => x.CommisonerManagerID,
                         principalTable: "Managers",
                         principalColumn: "ManagerID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Leagues_CommissionerID",
+                name: "IX_Leagues_CommisonerManagerID",
                 table: "Leagues",
-                column: "CommissionerID");
+                column: "CommisonerManagerID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LeaguePlayers_LeagueID",
                 table: "LeaguePlayers",
                 column: "LeagueID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaguePlayers_PlayerID",
+                table: "LeaguePlayers",
+                column: "PlayerID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LeaguePlayers_TeamID",
@@ -125,11 +125,6 @@ namespace EFantasySports.Migrations.GameDb
                 table: "Managers",
                 column: "TeamID",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rosters_LeagueID",
-                table: "Rosters",
-                column: "LeagueID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Teams_LeagueID",
@@ -153,14 +148,6 @@ namespace EFantasySports.Migrations.GameDb
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Rosters_Leagues_LeagueID",
-                table: "Rosters",
-                column: "LeagueID",
-                principalTable: "Leagues",
-                principalColumn: "LeagueID",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
                 name: "FK_Teams_Leagues_LeagueID",
                 table: "Teams",
                 column: "LeagueID",
@@ -172,7 +159,7 @@ namespace EFantasySports.Migrations.GameDb
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Leagues_Managers_CommissionerID",
+                name: "FK_Leagues_Managers_CommisonerManagerID",
                 table: "Leagues");
 
             migrationBuilder.DropTable(
@@ -180,9 +167,6 @@ namespace EFantasySports.Migrations.GameDb
 
             migrationBuilder.DropTable(
                 name: "Players");
-
-            migrationBuilder.DropTable(
-                name: "Rosters");
 
             migrationBuilder.DropTable(
                 name: "Managers");

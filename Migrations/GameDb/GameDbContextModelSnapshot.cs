@@ -20,13 +20,15 @@ namespace EFantasySports.Migrations.GameDb
                     b.Property<int>("LeagueID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CommisonerManagerID");
+
                     b.Property<int>("CommissionerID");
 
                     b.Property<string>("LeagueName");
 
                     b.HasKey("LeagueID");
 
-                    b.HasIndex("CommissionerID");
+                    b.HasIndex("CommisonerManagerID");
 
                     b.ToTable("Leagues");
                 });
@@ -38,11 +40,15 @@ namespace EFantasySports.Migrations.GameDb
 
                     b.Property<int>("LeagueID");
 
+                    b.Property<int>("PlayerID");
+
                     b.Property<int>("TeamID");
 
                     b.HasKey("LeaguePlayerID");
 
                     b.HasIndex("LeagueID");
+
+                    b.HasIndex("PlayerID");
 
                     b.HasIndex("TeamID");
 
@@ -82,20 +88,6 @@ namespace EFantasySports.Migrations.GameDb
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("EFantasySports.Models.Game.Roster", b =>
-                {
-                    b.Property<int>("RosterID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("LeagueID");
-
-                    b.HasKey("RosterID");
-
-                    b.HasIndex("LeagueID");
-
-                    b.ToTable("Rosters");
-                });
-
             modelBuilder.Entity("EFantasySports.Models.Game.Team", b =>
                 {
                     b.Property<int>("TeamID")
@@ -118,8 +110,7 @@ namespace EFantasySports.Migrations.GameDb
                 {
                     b.HasOne("EFantasySports.Models.Game.Manager", "Commisoner")
                         .WithMany()
-                        .HasForeignKey("CommissionerID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CommisonerManagerID");
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.LeaguePlayer", b =>
@@ -129,8 +120,13 @@ namespace EFantasySports.Migrations.GameDb
                         .HasForeignKey("LeagueID")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("EFantasySports.Models.Game.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("EFantasySports.Models.Game.Team", "Team")
-                        .WithMany("Players")
+                        .WithMany("LeaguePlayers")
                         .HasForeignKey("TeamID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -140,14 +136,6 @@ namespace EFantasySports.Migrations.GameDb
                     b.HasOne("EFantasySports.Models.Game.Team", "Team")
                         .WithOne("Manager")
                         .HasForeignKey("EFantasySports.Models.Game.Manager", "TeamID");
-                });
-
-            modelBuilder.Entity("EFantasySports.Models.Game.Roster", b =>
-                {
-                    b.HasOne("EFantasySports.Models.Game.League", "League")
-                        .WithMany()
-                        .HasForeignKey("LeagueID")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.Team", b =>
