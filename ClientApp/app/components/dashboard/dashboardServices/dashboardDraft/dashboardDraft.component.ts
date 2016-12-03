@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { DashboardDraftService } from './dashboardDraft.service';
+import 'rxjs/add/operator/map'; 
+import { Player } from '../../../../models/player';
+import {MaterializeAction} from 'angular2-materialize';
 
 @Component({
     selector: 'dashboard-draft',
@@ -8,9 +11,10 @@ import { DashboardDraftService } from './dashboardDraft.service';
     styleUrls: ['./dashboardDraft.component.css']
 })
 export class DashboardDraftComponent implements OnInit {
-    private players:Array<any> = Array(); 
+    private players:Array<Player> = Array(); 
+    private draftedPlayers:Array<Player> = Array(); 
+    modalActions = new EventEmitter<string|MaterializeAction>();
     constructor(private dds:DashboardDraftService){
-        
     }
     ngOnInit(){
         this.dds.getPlayers()
@@ -24,5 +28,8 @@ export class DashboardDraftComponent implements OnInit {
         },() => 
             console.log("Request Finished")
         );
+    }
+    onPick(player:Player, index:number){
+        this.draftedPlayers.push(player); 
     }
 }

@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LoginService } from './login.service'
-declare var $: any ;
 
 @Component({
     selector: 'home',
     providers: [LoginService],
     templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
     constructor(private ls:LoginService){
     }
-    ngOnInit(){
-        /*
-        $("p").click(function(){
-            alert("The paragraph was clicked.");
-        }); */  
+    ngAfterViewInit(){
+        //$('ul.tabs').tabs();
     }
     // Login in user
     login(){
@@ -22,5 +18,8 @@ export class HomeComponent implements OnInit {
     }
     registor(){
         this.ls.registor('akrala@yahoo.com', 'Linux01!', 'Linux01!'); 
+    }
+    test(){
+        this.ls.test();
     }
 }

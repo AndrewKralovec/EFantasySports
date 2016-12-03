@@ -8,21 +8,25 @@ namespace EFantasySports.Models.Game
     public class GameInitializer {
         public static void Initialize(GameDbContext context) {
             context.Database.EnsureCreated(); 
-            // Set up Team 
-            var manager = new Manager { ManagerName= "Andrew Kralovec" };
-            context.Managers.Add(manager); 
-            context.SaveChanges();
 
-            var league = new League { CommissionerID = manager.ManagerID, LeagueName="Kralovec League" }; 
+            var league = new League { LeagueName="Smith League" }; 
             context.Leagues.Add(league); 
             context.SaveChanges();
 
-            var roster = new Roster { LeagueID = league.LeagueID }; 
-            context.Rosters.Add(roster); 
-            context.SaveChanges();
+            var managers = new List<Manager> {
+                new Manager { ManagerName= "John Smith" }, 
+                new Manager { ManagerName= "Andrew Kralovec" }, 
+                new Manager { ManagerName= "Fred Millser" }, 
 
-            var team = new Team { LeagueID = league.LeagueID, ManagerID = manager.ManagerID, TeamName = "Kralovec Team"}; 
-            context.Teams.Add(team); 
+            }; 
+            managers.ForEach(m => context.Add(m)); 
+            context.SaveChanges(); 
+            var teams = new List<Team> {
+                new Team { TeamName = "Lions", LeagueID=1, ManagerID = 1},
+                new Team { TeamName = "Kittens", LeagueID=1, ManagerID = 2},
+                new Team { TeamName = "Tigers", LeagueID=1, ManagerID = 3}
+            }; 
+            teams.ForEach(t => context.Add(t)); 
             context.SaveChanges(); 
 
             // Set up Players 
@@ -46,6 +50,17 @@ namespace EFantasySports.Models.Game
 
             };
             players.ForEach(p => context.Players.Add(p));  
+            context.SaveChanges();
+            
+            var DraftedPlayers = new List<DraftedPlayer> {
+                new DraftedPlayer { PlayerID = 1, LeagueID=1, TeamID = 1},
+                new DraftedPlayer { PlayerID = 2, LeagueID=1, TeamID = 2},
+                new DraftedPlayer { PlayerID = 3, LeagueID=1, TeamID = 3},
+                new DraftedPlayer { PlayerID = 4, LeagueID=1, TeamID = 1},
+                new DraftedPlayer { PlayerID = 5, LeagueID=1, TeamID = 2},
+                new DraftedPlayer { PlayerID = 6, LeagueID=1, TeamID = 3}
+            }; 
+            DraftedPlayers.ForEach(dp => context.DraftedPlayers.Add(dp)); 
             context.SaveChanges();
         }
     }

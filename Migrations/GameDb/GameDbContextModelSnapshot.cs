@@ -15,18 +15,36 @@ namespace EFantasySports.Migrations.GameDb
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
 
+            modelBuilder.Entity("EFantasySports.Models.Game.DraftedPlayer", b =>
+                {
+                    b.Property<int>("DraftedPlayerID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("LeagueID");
+
+                    b.Property<int>("PlayerID");
+
+                    b.Property<int>("TeamID");
+
+                    b.HasKey("DraftedPlayerID");
+
+                    b.HasIndex("LeagueID");
+
+                    b.HasIndex("PlayerID");
+
+                    b.HasIndex("TeamID");
+
+                    b.ToTable("DraftedPlayers");
+                });
+
             modelBuilder.Entity("EFantasySports.Models.Game.League", b =>
                 {
                     b.Property<int>("LeagueID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CommissionerID");
-
                     b.Property<string>("LeagueName");
 
                     b.HasKey("LeagueID");
-
-                    b.HasIndex("CommissionerID");
 
                     b.ToTable("Leagues");
                 });
@@ -42,8 +60,7 @@ namespace EFantasySports.Migrations.GameDb
 
                     b.HasKey("ManagerID");
 
-                    b.HasIndex("TeamID")
-                        .IsUnique();
+                    b.HasIndex("TeamID");
 
                     b.ToTable("Managers");
                 });
@@ -59,27 +76,9 @@ namespace EFantasySports.Migrations.GameDb
 
                     b.Property<string>("Postion");
 
-                    b.Property<int?>("TeamID");
-
                     b.HasKey("PlayerID");
 
-                    b.HasIndex("TeamID");
-
                     b.ToTable("Players");
-                });
-
-            modelBuilder.Entity("EFantasySports.Models.Game.Roster", b =>
-                {
-                    b.Property<int>("RosterID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("LeagueID");
-
-                    b.HasKey("RosterID");
-
-                    b.HasIndex("LeagueID");
-
-                    b.ToTable("Rosters");
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.Team", b =>
@@ -97,37 +96,35 @@ namespace EFantasySports.Migrations.GameDb
 
                     b.HasIndex("LeagueID");
 
+                    b.HasIndex("ManagerID")
+                        .IsUnique();
+
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("EFantasySports.Models.Game.League", b =>
+            modelBuilder.Entity("EFantasySports.Models.Game.DraftedPlayer", b =>
                 {
-                    b.HasOne("EFantasySports.Models.Game.Manager", "Commisoner")
+                    b.HasOne("EFantasySports.Models.Game.League", "League")
                         .WithMany()
-                        .HasForeignKey("CommissionerID")
+                        .HasForeignKey("LeagueID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFantasySports.Models.Game.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFantasySports.Models.Game.Team", "Team")
+                        .WithMany("Players")
+                        .HasForeignKey("TeamID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.Manager", b =>
                 {
                     b.HasOne("EFantasySports.Models.Game.Team", "Team")
-                        .WithOne("Manager")
-                        .HasForeignKey("EFantasySports.Models.Game.Manager", "TeamID");
-                });
-
-            modelBuilder.Entity("EFantasySports.Models.Game.Player", b =>
-                {
-                    b.HasOne("EFantasySports.Models.Game.Team", "Team")
-                        .WithMany("Players")
-                        .HasForeignKey("TeamID");
-                });
-
-            modelBuilder.Entity("EFantasySports.Models.Game.Roster", b =>
-                {
-                    b.HasOne("EFantasySports.Models.Game.League", "League")
                         .WithMany()
-                        .HasForeignKey("LeagueID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TeamID");
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.Team", b =>
@@ -135,6 +132,11 @@ namespace EFantasySports.Migrations.GameDb
                     b.HasOne("EFantasySports.Models.Game.League", "League")
                         .WithMany("Teams")
                         .HasForeignKey("LeagueID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFantasySports.Models.Game.Manager", "Manager")
+                        .WithOne()
+                        .HasForeignKey("EFantasySports.Models.Game.Team", "ManagerID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

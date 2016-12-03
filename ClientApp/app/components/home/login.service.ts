@@ -51,4 +51,18 @@ export class LoginService {
             }
         );
     }
+    test(){
+        this.http.get('/api/Team/getTeam')
+        .map(response  => response.json())
+        .subscribe(
+             response => { 
+                 console.log("Success !!!:\n"); 
+                 console.log(response); 
+            }, 
+            error => {
+                 console.log("Error !!!:\n"); 
+                 console.log(error); 
+            }
+        );
+    }
 }

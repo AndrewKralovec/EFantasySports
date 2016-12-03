@@ -9,16 +9,20 @@ using EFantasySports.Data;
 namespace EFantasySports.Controllers
 {
     [Route("api/[controller]")]
-    public class GameController : Controller {
+    public class DraftController : Controller {
         private readonly GameDbContext context ; 
-        public GameController(GameDbContext context){
+        private readonly DateTime draftTime; 
+        public DraftController(GameDbContext context){
             this.context = context; 
-        }
-        public async Task<IActionResult> getPlayer(){
-            return Json(await context.Leagues.ToListAsync());
+            this.draftTime = DateTime.Today.AddHours(22).AddMinutes(35).AddSeconds(59);
         }
         public async Task<IActionResult> getTeams(){
             return Json(await context.Leagues.ToListAsync());
         }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> draftPlayer([FromBody] int playerID){
+            return Json(await context.Leagues.ToListAsync());
+        }
+
     }
 }

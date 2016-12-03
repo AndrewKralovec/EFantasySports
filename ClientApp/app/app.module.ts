@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { DashboardNavMenuComponent } from './components/dashboard/dashboardServices/dashboardNavmenu/dashboardNavmenu.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboardServices/dashboardHome/dashboardHome.component';
 import { DashboardDraftComponent } from './components/dashboard/dashboardServices/dashboardDraft/dashboardDraft.component';
+import { DashboardTeamComponent } from './components/dashboard/dashboardServices/dashboardTeam/dashboardTeam.component';
+
 
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
@@ -28,6 +30,7 @@ import { CounterComponent } from './components/counter/counter.component';
         DashboardNavMenuComponent,
         DashboardHomeComponent, 
         DashboardDraftComponent,
+        DashboardTeamComponent,
         CounterComponent,
         FetchDataComponent,
         HomeComponent
