@@ -9,14 +9,17 @@ namespace EFantasySports.Models.Game
     public class Team{
         [Key]
         public int TeamID { get; set; }
-        [ForeignKey("Manager")]
-        public int ManagerID { get; set; }
-        [ForeignKey("League")]
-        public int LeagueID { get; set; }
         public string TeamName { get; set; }
-        public virtual Manager Manager { get; set; }
+        public int ManagerID { get; set; }
+        public int LeagueID { get; set; }
+        [ForeignKey("LeagueID")]
         public virtual League League { get; set; }
-        public virtual ICollection<LeaguePlayer> Players { get; set; }
+        [ForeignKey("ManagerID")]
+        public virtual Manager Manager { get; set; }
+        public virtual ICollection<DraftedPlayer> Players { get; set; }
 
+        public Team() {
+            Players = new List<DraftedPlayer>();
+        }
     }
 }

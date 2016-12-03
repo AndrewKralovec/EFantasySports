@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel; 
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace EFantasySports.Models.Game
 {
@@ -11,5 +12,6 @@ namespace EFantasySports.Models.Game
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Postion { get; set; }
+        public Player() {}
     }
 }
