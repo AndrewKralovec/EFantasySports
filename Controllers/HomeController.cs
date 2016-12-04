@@ -6,15 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EFantasySports.Controllers
 {
-    public class HomeController : Controller
-    {
-        public IActionResult Index()
-        {
+    public class HomeController : Controller {
+        public IActionResult Index() {
             return View();
         }
-
-        public IActionResult Error()
-        {
+        public IActionResult Error(){
             return View();
         }
     }
