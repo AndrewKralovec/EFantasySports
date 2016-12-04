@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./dashboardTeam.component.css']
 })
 export class DashboardTeamComponent implements OnInit {
-    private team:Team = null; 
+    private team:any = Object; 
     constructor(private dt:DashboardTeamService){
 
     }
@@ -20,6 +20,7 @@ export class DashboardTeamComponent implements OnInit {
             console.log("Response:");
             console.log(response);
             this.team = response ; 
+            console.log(this.team);
         }, (error:any) => {
             console.log("Error:");
             console.log(error);
