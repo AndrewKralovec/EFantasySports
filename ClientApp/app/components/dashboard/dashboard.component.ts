@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+    constructor(){
+
+    }
+    scrollUp():void{
+        window.scroll(0, 0);
+    }
 }

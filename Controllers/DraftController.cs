@@ -17,9 +17,8 @@ namespace EFantasySports.Controllers
             this.draftTime = DateTime.Today.AddHours(22).AddMinutes(35).AddSeconds(59);
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> draftPlayer([FromBody] int playerID){
+        public async Task<IActionResult> DraftPlayer([FromBody] int playerID){
             return Json(await context.Leagues.ToListAsync());
         }
-
     }
 }

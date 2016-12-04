@@ -20,29 +20,7 @@
         <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
     </li>
 </ul>
-<h1>To help you get started, we've also set up:</h1>
-<p>Create your fantacy team </p>
-login 
-<button (click)="login()">login</button>
-<br>
-Create Account
-<button (click)="registor()">registor</button>
-<br>
-Test Team
-<button (click)="test()">registor</button>
-<br>
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs" materialize="tabs">
-          <li class="tab col s3"><a href="#fire">Test 1</a></li>
-          <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-          <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-          <li class="tab col s3"><a href="#test4">Test 4</a></li>
-        </ul>
-      </div>
-      <div id="fire" class="col s12">Test 1</div>
-      <div id="test2" class="col s12">Test 2</div>
-      <div id="test3" class="col s12">Test 3</div>
-      <div id="test4" class="col s12">Test 4</div>
-    </div>
+<h1>Dashboard </h1>
+<a class="waves-effect waves-light btn" [routerLink]="['/dashboard']">Dashboard</a>
+
 

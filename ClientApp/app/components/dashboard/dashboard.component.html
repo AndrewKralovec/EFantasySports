@@ -2,9 +2,10 @@
     <dashboarddNavmenu></dashboarddNavmenu>
     <div class="col s10 m10">
         <router-outlet></router-outlet>
-        <button
-            id="dashboardScrollToTop" class="right">
-            <i class="material-icons" id="scroll-arrow">expand_less</i>
-        </button>
+        <div class="fixed-action-btn home-options horizontal">
+            <a class="btn-floating btn-large teal lighten-1" (click)="scrollUp()">
+                <i class="material-icons" id="scroll-arrow">expand_less</i>
+            </a>
+        </div>
     </div>
 </main>

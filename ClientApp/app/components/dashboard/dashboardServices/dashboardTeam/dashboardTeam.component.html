@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row" *ngIf="!team">
+    <loader-component></loader-component>
+</div>
+<div class="row" *ngIf="team">
     <div class="col s12">
         Team Information
     </div>
@@ -66,10 +69,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let player of team.players">
-                    <td>{{player.playerID}}</td>
-                    <td>{{player.lastName}}  {{player.firstName}}</td>
-                    <td>{{player.postion}}</td>
+                <tr *ngFor="let tp of team.players">
+                    <td>{{tp.player.playerID}}</td>
+                    <td>{{tp.player.lastName}}  {{tp.player.firstName}}</td>
+                    <td>{{tp.player.postion}}</td>
                 </tr>
             <tbody>
         </table>

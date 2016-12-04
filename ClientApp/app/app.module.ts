@@ -17,8 +17,7 @@ import { DashboardLeagueComponent } from './components/dashboard/dashboardServic
 
 
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -26,15 +25,14 @@ import { CounterComponent } from './components/counter/counter.component';
         MaterializeDirective,
         AppComponent,
         HeaderComponent, 
-        FooterComponent, 
+        FooterComponent,
+        LoaderComponent, 
         DashboardComponent, 
         DashboardNavMenuComponent,
         DashboardHomeComponent, 
         DashboardDraftComponent,
         DashboardTeamComponent,
         DashboardLeagueComponent,
-        CounterComponent,
-        FetchDataComponent,
         HomeComponent
     ],
     imports: [
@@ -50,8 +48,6 @@ import { CounterComponent } from './components/counter/counter.component';
                 { path: 'team', component: DashboardTeamComponent },
                 { path: '**', redirectTo: '', pathMatch: 'full' }
             ]},
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

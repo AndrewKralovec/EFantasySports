@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row" *ngIf="!league">
+    <loader-component></loader-component>
+</div>
+<div class="row" *ngIf="league">
 	<div class="col s12">
 	<ul class="tabs" materialize="tabs">
 		<li class="tab col s3"><a class="active" href="#test1">Home</a></li>
@@ -8,14 +11,14 @@
 	</ul>
 	</div>
 	<div id="test1" class="col s12">
-		<div class="col s12">
+		<div class="col s5">
 			<div class="card">
 				<div class="card-image">
 					<img src="http://localhost:5000/images/Team-Logo.jpeg">
 				</div>
 				<div class="card-content teal">
 					<span>
-						Possilble Commissioner information
+						{{ league.leagueName }}
 					</span>
 				</div>
 				<div class="card-action center">
@@ -25,7 +28,16 @@
 		</div>
 	</div>
 	<div id="test2" class="col s12">
-		Members
+		<div class="col s5">
+			<ul class="collection with-header">
+				<li class="collection-header">
+					<h4>{{ league.leagueName }} Mememebrs </h4>
+				</li>
+				<li class="collection-item" *ngFor="let team of league.teams" >
+					{{ team }}
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div id="test3" class="col s12">
 

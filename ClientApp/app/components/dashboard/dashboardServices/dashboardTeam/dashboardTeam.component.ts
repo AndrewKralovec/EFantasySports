@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./dashboardTeam.component.css']
 })
 export class DashboardTeamComponent implements OnInit {
-    private team:any = Object; 
+    private team:Team = null; 
     constructor(private dt:DashboardTeamService){
 
     }
@@ -18,9 +18,9 @@ export class DashboardTeamComponent implements OnInit {
         this.dt.getTeamInfo()
         .subscribe((response:any) => {
             console.log("Response:");
-            console.log(response);
             this.team = response ; 
             console.log(this.team);
+            console.log(this.team.players);
         }, (error:any) => {
             console.log("Error:");
             console.log(error);

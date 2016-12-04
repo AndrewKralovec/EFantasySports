@@ -11,7 +11,7 @@ import {MaterializeAction} from 'angular2-materialize';
     styleUrls: ['./dashboardDraft.component.css']
 })
 export class DashboardDraftComponent implements OnInit {
-    private players:Array<Player> = Array(); 
+    private players:Array<Player> = null; 
     private draftedPlayers:Array<Player> = Array(); 
     modalActions = new EventEmitter<string|MaterializeAction>();
     constructor(private dds:DashboardDraftService){

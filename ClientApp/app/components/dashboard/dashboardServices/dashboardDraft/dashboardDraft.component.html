@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row" *ngIf="!players">
+    <loader-component></loader-component>
+</div>
+<div class="row" *ngIf="players">
     <h3>
         Draft Central Overview
         <hr> 
@@ -26,31 +29,61 @@
     </div>
     <div class="col s7">
         <div class="col s6">
-            <div class="card" id="profile-card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <span class="badge red white-text">Current Team</span>
-                    <img alt="user background" class="activator" src="http://localhost:5000/images/Card-Background.jpg">
+            <div class="row team-cards">
+                <div class="card" id="profile-card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <span class="badge red white-text">Current Team</span>
+                        <img alt="user background" class="activator" src="http://localhost:5000/images/Card-Background.jpg">
+                    </div>
+                    <div class="card-content">
+                        <img alt="" class="circle responsive-img activator card-profile-image" src="http://localhost:5000/images/User-Icon.png">
+                        <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
+                            <i class="mdi-action-account-circle"></i>
+                        </a> 
+                        <span class="card-title activator grey-text text-darken-4">Team Manager</span>
+                        <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Andrew Kralovec</p>
+                        <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            Team Manager 
+                            <i class="mdi-navigation-close right"></i>
+                        </span>
+                        <p>Team States</p>
+                        <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Manager</p>
+                        <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                        <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                        <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+                        <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <img alt="" class="circle responsive-img activator card-profile-image" src="http://localhost:5000/images/User-Icon.png">
-                    <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
-                        <i class="mdi-action-account-circle"></i>
-                    </a> 
-                    <span class="card-title activator grey-text text-darken-4">Team Manager</span>
-                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Andrew Kralovec</p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">
-                        Team Manager 
-                        <i class="mdi-navigation-close right"></i>
-                    </span>
-                    <p>Team States</p>
-                    <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Manager</p>
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
-                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
-                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+
+                <div class="card" id="profile-card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <span class="badge red white-text">Next Team</span>
+                        <img alt="user background" class="activator" src="http://localhost:5000/images/Card-Background.jpg">
+                    </div>
+                    <div class="card-content">
+                        <img alt="" class="circle responsive-img activator card-profile-image" src="http://localhost:5000/images/User-Icon.png">
+                        <a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right">
+                            <i class="mdi-action-account-circle"></i>
+                        </a> 
+                        <span class="card-title activator grey-text text-darken-4">Team Manager</span>
+                        <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Matt Kralovec</p>
+                        <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            Team Manager 
+                            <i class="mdi-navigation-close right"></i>
+                        </span>
+                        <p>Team States</p>
+                        <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Manager</p>
+                        <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                        <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                        <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+                        <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+                    </div>
                 </div>
             </div>
         </div>
