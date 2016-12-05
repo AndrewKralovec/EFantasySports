@@ -19,8 +19,6 @@ export class DashboardTeamComponent implements OnInit {
         .subscribe((response:any) => {
             console.log("Response:");
             this.team = response ; 
-            console.log(this.team);
-            console.log(this.team.players);
         }, (error:any) => {
             console.log("Error:");
             console.log(error);

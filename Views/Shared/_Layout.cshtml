@@ -8,10 +8,10 @@
         <!-- <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" /> -->
          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-         <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script> -->
     </head>
     <body>
         @RenderBody()
+        <!--
         <environment names="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
         </environment>
@@ -21,6 +21,7 @@
                     asp-fallback-test="window.jQuery">
             </script>
         </environment>
+        -->
         @RenderSection("scripts", required: false)
     </body>
 </html>
