@@ -8,13 +8,14 @@ using EFantasySports.Data;
 namespace EFantasySports.Migrations.GameDb
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20161203214111_InitialCreate")]
+    [Migration("20161209154802_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("EFantasySports.Models.Game.DraftedPlayer", b =>
                 {
@@ -25,7 +26,7 @@ namespace EFantasySports.Migrations.GameDb
 
                     b.Property<int>("PlayerID");
 
-                    b.Property<int>("TeamID");
+                    b.Property<int?>("TeamID");
 
                     b.HasKey("DraftedPlayerID");
 
@@ -117,8 +118,7 @@ namespace EFantasySports.Migrations.GameDb
 
                     b.HasOne("EFantasySports.Models.Game.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TeamID");
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.Manager", b =>
