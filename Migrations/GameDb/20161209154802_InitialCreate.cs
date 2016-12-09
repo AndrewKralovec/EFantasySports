@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EFantasySports.Migrations.GameDb
 {
@@ -13,7 +14,7 @@ namespace EFantasySports.Migrations.GameDb
                 columns: table => new
                 {
                     LeagueID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     LeagueName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -26,7 +27,7 @@ namespace EFantasySports.Migrations.GameDb
                 columns: table => new
                 {
                     PlayerID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Postion = table.Column<string>(nullable: true)
@@ -41,10 +42,10 @@ namespace EFantasySports.Migrations.GameDb
                 columns: table => new
                 {
                     DraftedPlayerID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     LeagueID = table.Column<int>(nullable: false),
                     PlayerID = table.Column<int>(nullable: false),
-                    TeamID = table.Column<int>(nullable: false)
+                    TeamID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,7 +69,7 @@ namespace EFantasySports.Migrations.GameDb
                 columns: table => new
                 {
                     TeamID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     LeagueID = table.Column<int>(nullable: false),
                     ManagerID = table.Column<int>(nullable: false),
                     TeamName = table.Column<string>(nullable: true)
@@ -89,7 +90,7 @@ namespace EFantasySports.Migrations.GameDb
                 columns: table => new
                 {
                     ManagerID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ManagerName = table.Column<string>(nullable: true),
                     TeamID = table.Column<int>(nullable: true)
                 },
@@ -141,7 +142,7 @@ namespace EFantasySports.Migrations.GameDb
                 column: "TeamID",
                 principalTable: "Teams",
                 principalColumn: "TeamID",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Teams_Managers_ManagerID",

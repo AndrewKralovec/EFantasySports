@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EFantasySports.Migrations
 {
@@ -66,7 +67,7 @@ namespace EFantasySports.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
@@ -107,7 +108,7 @@ namespace EFantasySports.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true),
                     RoleId = table.Column<string>(nullable: false)
@@ -147,96 +148,6 @@ namespace EFantasySports.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Roster",
-                columns: table => new
-                {
-                    RosterID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    LeagueID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Roster", x => x.RosterID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Team",
-                columns: table => new
-                {
-                    TeamID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    LeagueID = table.Column<int>(nullable: false),
-                    ManagerID = table.Column<int>(nullable: false),
-                    TeamName = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Team", x => x.TeamID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Manager",
-                columns: table => new
-                {
-                    ManagerID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    ManagerName = table.Column<string>(nullable: true),
-                    TeamID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Manager", x => x.ManagerID);
-                    table.ForeignKey(
-                        name: "FK_Manager_Team_TeamID",
-                        column: x => x.TeamID,
-                        principalTable: "Team",
-                        principalColumn: "TeamID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Player",
-                columns: table => new
-                {
-                    PlayerID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Postion = table.Column<string>(nullable: true),
-                    TeamID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Player", x => x.PlayerID);
-                    table.ForeignKey(
-                        name: "FK_Player_Team_TeamID",
-                        column: x => x.TeamID,
-                        principalTable: "Team",
-                        principalColumn: "TeamID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "League",
-                columns: table => new
-                {
-                    LeagueID = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    CommissionerID = table.Column<int>(nullable: false),
-                    LeagueName = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_League", x => x.LeagueID);
-                    table.ForeignKey(
-                        name: "FK_League_Manager_CommissionerID",
-                        column: x => x.CommissionerID,
-                        principalTable: "Manager",
-                        principalColumn: "ManagerID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -247,32 +158,6 @@ namespace EFantasySports.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_League_CommissionerID",
-                table: "League",
-                column: "CommissionerID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Manager_TeamID",
-                table: "Manager",
-                column: "TeamID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Player_TeamID",
-                table: "Player",
-                column: "TeamID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Roster_LeagueID",
-                table: "Roster",
-                column: "LeagueID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Team_LeagueID",
-                table: "Team",
-                column: "LeagueID");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
@@ -303,36 +188,10 @@ namespace EFantasySports.Migrations
                 name: "IX_AspNetUserRoles_UserId",
                 table: "AspNetUserRoles",
                 column: "UserId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Roster_League_LeagueID",
-                table: "Roster",
-                column: "LeagueID",
-                principalTable: "League",
-                principalColumn: "LeagueID",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Team_League_LeagueID",
-                table: "Team",
-                column: "LeagueID",
-                principalTable: "League",
-                principalColumn: "LeagueID",
-                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_League_Manager_CommissionerID",
-                table: "League");
-
-            migrationBuilder.DropTable(
-                name: "Player");
-
-            migrationBuilder.DropTable(
-                name: "Roster");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -353,15 +212,6 @@ namespace EFantasySports.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Manager");
-
-            migrationBuilder.DropTable(
-                name: "Team");
-
-            migrationBuilder.DropTable(
-                name: "League");
         }
     }
 }

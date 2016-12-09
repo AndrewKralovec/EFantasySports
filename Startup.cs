@@ -31,9 +31,10 @@ namespace EFantasySports
         public void ConfigureServices(IServiceCollection services) {
             // Add Context services
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("AccountConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("AccountConnection")));
             services.AddDbContext<GameDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("GameConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("GameConnection")));
+                
             // Add Identify servies 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -69,7 +70,7 @@ namespace EFantasySports
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
-            // GameInitializer.Initialize(context); 
+            GameInitializer.Initialize(context); 
         }
     }
 }
