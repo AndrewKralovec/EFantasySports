@@ -17,6 +17,7 @@ import { DashboardLeagueComponent } from './components/dashboard/dashboardServic
 
 
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { LoaderComponent } from './components/loader/loader.component';
         DashboardDraftComponent,
         DashboardTeamComponent,
         DashboardLeagueComponent,
+        LoginComponent,
         HomeComponent
     ],
     imports: [
@@ -41,6 +43,7 @@ import { LoaderComponent } from './components/loader/loader.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
+            { path: 'login', component: LoginComponent },
             { path: 'dashboard', component: DashboardComponent, children: [
                 { path: '', component: DashboardHomeComponent },
                 { path: 'draft', component: DashboardDraftComponent },
