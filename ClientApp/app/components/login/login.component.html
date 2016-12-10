@@ -1,6 +1,6 @@
 <div class="row" id="login-page">
 	<div class="col s6 offset-s3 z-depth-4 card-panel">
-		<form class="login-form" [formGroup]="loginForm" novalidate (ngSubmit)="save(loginForm.value, loginForm.valid)">
+		<form class="login-form" [formGroup]="loginForm" novalidate (ngSubmit)="login(loginForm.value, loginForm.valid)">
 			<div class="row">
 				<div class="input-field col s12 center">
 					<img alt="" class="circle responsive-img valign profile-image-login" src="">
@@ -10,15 +10,15 @@
 			<div class="row margin">
 				<div class="input-field col s12">
 					<i class="material-icons prefix">perm_identity</i> 
-                    <input id="username" type="email"> 
-					<label class="center-align" for="username" formControlName="email">Username</label>
+                    <input id="email" type="email" formControlName="email"> 
+					<label class="center-align" for="email">Email</label>
 				</div>
 			</div>
 			<div class="row margin">
 				<div class="input-field col s12">
 					<i class="material-icons prefix">lock</i> 
-                    <input id="password" type="password"> 
-					<label class="center-align" for="password" formControlName="password">Password</label>
+                    <input id="password" type="password" formControlName="password"> 
+					<label class="center-align" for="password">Password</label>
 				</div>
 			</div>
 			<div class="row">
@@ -29,15 +29,19 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<a class="btn waves-effect waves-light col s12" href="index.html">Login</a>
+					<button class="btn waves-effect waves-light col s12" type="submit">Login</button>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6 m6 l6">
-					<p class="margin medium-small"><a href="page-register.html">Register Now!</a></p>
+					<p class="margin medium-small">
+						<a>Register Now!</a>
+					</p>
 				</div>
 				<div class="input-field col s6 m6 l6">
-					<p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
+					<p class="margin right-align medium-small">
+						<a>Forgot password ?</a>
+					</p>
 				</div>
 			</div>
 		</form>

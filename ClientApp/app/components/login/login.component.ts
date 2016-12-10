@@ -17,18 +17,15 @@ export class LoginComponent implements OnInit {
     constructor(private fb: FormBuilder, private ls:LoginService){
     }
     ngOnInit(){
-        this.loginForm = this.fb.group({
-            email: ['', [<any>Validators.required]],
-            password: ['', [<any>Validators.required, <any>Validators.minLength(6)]],
-            rememberMe: ['']
+        this.loginForm = new FormGroup({
+            email: new FormControl('',[Validators.required]),
+            password: new FormControl('', [Validators.required,Validators.minLength(6)]),
+            rememberMe: new FormControl(false)
         });
     }
-    save(model: User, isValid: boolean) {
-        this.submitted = true;
-        console.log(model, isValid);
-    }
-    // Login in user
-    login(email: any, password: any){
-        this.ls.login(email, password, false); 
+    login(user: User, isValid: boolean) {
+        if(isValid){
+            this.ls.login(user);
+        }
     }
 }

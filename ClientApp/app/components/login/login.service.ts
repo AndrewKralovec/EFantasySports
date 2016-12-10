@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http' 
+import { User } from '../../models/user';
 import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -26,10 +27,10 @@ export class LoginService {
         return true;  
     }
     // Find user in database, if exists, and log them in  
-    login(email:any, password:any, remember:any) {
+    login(user: User) {
         //let body:User = {email:email, password:password}; 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let body = {Email:email, Password:password,RememberMe:false }; 
+        let body = { Email:user.email, Password:user.password, RememberMe:user.rememberMe }; 
         console.log(body); 
         this.http.post('/api/Account/Login', body ,{headers:headers})
         .map(response  => response.json())
