@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http' 
+import { User } from '../../models/user';
 import 'rxjs/add/operator/map'
 
 @Injectable()
-export class RegistorService {
+export class RegisterService {
     constructor(private router:Router, private http:Http){
     }
-    registor(email:any, password:any, confirm:any){
+    register(user:User){
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let body = {Email:email, Password:password,ConfirmPassword:confirm }; 
+        let body = { Email:user.email, Password:user.password, ConfirmPassword:user.confirmPassword }; 
         console.log(body); 
         this.http.post('/api/Account/Register', body ,{headers:headers})
         .map(response  => response.json())
@@ -17,7 +18,6 @@ export class RegistorService {
              response => { 
                  console.log("Success !!!:\n"); 
                  console.log(response); 
-                 this.router.navigate(['/home']);
             }, 
             error => {
                  console.log("Error !!!:\n"); 

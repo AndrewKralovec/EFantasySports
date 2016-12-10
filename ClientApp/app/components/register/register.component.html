@@ -1,10 +1,10 @@
-<div class="row" id="login-page">
+<div class="row" id="register-page">
 	<div class="col s6 offset-s3 z-depth-4 card-panel">
-		<form class="login-form" [formGroup]="loginForm" novalidate (ngSubmit)="login(loginForm.value, loginForm.valid)">
+		<form class="register-form" [formGroup]="registerForm" novalidate (ngSubmit)="register(registerForm.value, registerForm.valid)">
 			<div class="row">
 				<div class="input-field col s12 center">
-					<img alt="" class="circle responsive-img valign profile-image-login" src="">
-					<p class="center login-form-text">Login EFantasySports</p>
+					<img alt="" class="circle responsive-img valign profile-image-register" src="">
+					<p class="center register-form-text">register EFantasySports</p>
 				</div>
 			</div>
 			<div class="row margin">
@@ -21,27 +21,23 @@
 					<label class="center-align" for="password">Password</label>
 				</div>
 			</div>
-			<div class="row">
-				<div class="input-field col s12 m12 l12 login-text">
-					<input id="remember-me" type="checkbox" formControlName="rememberMe">
-					<label for="remember-me">Remember me</label>
+			<div class="row margin">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">lock</i> 
+                    <input id="confirmPassword" type="password" formControlName="confirmPassword"> 
+					<label class="center-align" for="confirmPassword">Confirm Password</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<button class="btn waves-effect waves-light col s12" type="submit">Login</button>
+					<button class="btn waves-effect waves-light col s12" type="submit">register</button>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6 m6 l6">
 					<p class="margin medium-small">
-						<a [routerLink]="['/register']">Register Now!</a>
-					</p>
-				</div>
-				<div class="input-field col s6 m6 l6">
-					<p class="margin right-align medium-small">
-						<a>Forgot password ?</a>
-					</p>
+                        <a>Already have an account? Login</a>
+                    </p>
 				</div>
 			</div>
 		</form>

@@ -10,10 +10,7 @@ import { User } from '../../models/user';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    private loginForm: FormGroup; // our model driven form
-    private submitted: boolean; // keep track on whether form is submitted
-    private events: any[] = []; // use later to display form changes
-
+    private loginForm: FormGroup;
     constructor(private fb: FormBuilder, private ls:LoginService){
     }
     ngOnInit(){

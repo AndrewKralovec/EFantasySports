@@ -33,7 +33,7 @@ export class LoginService {
             }
         );
     }
-    registor(email:any, password:any, confirm:any){
+    register(email:any, password:any, confirm:any){
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let body = {Email:email, Password:password,ConfirmPassword:confirm }; 
         console.log(body); 

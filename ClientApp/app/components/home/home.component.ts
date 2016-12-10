@@ -12,14 +12,4 @@ export class HomeComponent implements AfterViewInit {
     ngAfterViewInit(){
         //$('ul.tabs').tabs();
     }
-    // Login in user
-    login(){
-        this.ls.login('akrala@yahoo.com', 'Linux01!', false); 
-    }
-    registor(){
-        this.ls.registor('akrala@yahoo.com', 'Linux01!', 'Linux01!'); 
-    }
-    test(){
-        this.ls.test();
-    }
 }
