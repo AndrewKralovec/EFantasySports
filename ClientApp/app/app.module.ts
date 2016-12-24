@@ -1,8 +1,11 @@
+// Directives
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { MaterializeDirective } from 'angular2-materialize';
+// Pipes 
+import { ImageSrc } from './pipes/imageSrc.pipe';
 // Page components 
 import { AppComponent } from './components/app/app.component'
 import { HeaderComponent } from './components/header/header.component'
@@ -24,8 +27,11 @@ import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
+        // Directives
         MaterializeDirective,
+        // Components
         AppComponent,
+        HomeComponent, 
         HeaderComponent, 
         FooterComponent,
         LoaderComponent, 
@@ -38,7 +44,8 @@ import { LoaderComponent } from './components/loader/loader.component';
         DashboardTeamComponent,
         DashboardLeagueComponent,
         DashboardSettingsComponent,
-        HomeComponent
+        // Pipes 
+        ImageSrc
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.

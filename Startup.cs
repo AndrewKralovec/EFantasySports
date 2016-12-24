@@ -34,7 +34,6 @@ namespace EFantasySports
                 options.UseSqlServer(Configuration.GetConnectionString("AccountConnection")));
             services.AddDbContext<GameDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("GameConnection")));
-                
             // Add Identify servies 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
