@@ -53,14 +53,13 @@ namespace EFantasySports.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Login([FromBody] AccountLogin model) {
             try {
-                AccountResponse response = null; 
                 if (ModelState.IsValid) {
                     var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                     if (result.Succeeded) {
                         logger.LogInformation(1, "User logged in.");
                         var user = await userManager.GetUserAsync(HttpContext.User); 
                         return Json(new {
-                                Response = new AccountResponse(true, "User logged in."), 
+                                Response = new AccountResponse(true, "User logged in"), 
                                 User = new { Id = user.Id, Username = user.UserName } 
                         });
                     }

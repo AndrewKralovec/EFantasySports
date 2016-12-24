@@ -1,0 +1,175 @@
+<div class="row" *ngIf="!manager">
+    <loader-component></loader-component>
+</div>
+<div class="row" *ngIf="manager">
+	<!-- Page Heading -->
+	<div class="card page-header">
+		<div class="card-image waves-effect waves-block waves-light">
+			<img class="activator" src="http://localhost:5000/images/User-Profile-Background.jpg" alt="user background">                    
+		</div>
+		<figure class="profile-image">
+			<img src="http://localhost:5000/images/User-Icon.png" alt="profile image" class="circle z-depth-2 responsive-img activator">
+		</figure>
+		<div class="card-content">
+			<div class="row">                    
+			<div class="col s3 offset-s2">                        
+				<h4 class="card-title grey-text text-darken-4">{{manager.managerName}}</h4>
+				<p class="medium-small grey-text">Team Manager</p>                        
+			</div>
+			<div class="col s2 center-align">
+				<h4 class="card-title grey-text text-darken-4">10+</h4>
+				<p class="medium-small grey-text">Experience</p>                        
+			</div>
+			<div class="col s2 center-align">
+				<h4 class="card-title grey-text text-darken-4">1</h4>
+				<p class="medium-small grey-text">Teams</p>                        
+			</div>                    
+			<div class="col s2 center-align">
+				<h4 class="card-title grey-text text-darken-4">$ 1,069,069</h4>
+				<p class="medium-small grey-text">Account Balance</p>                        
+			</div>                    
+			<div class="col s1 right-align">
+				<a class="btn-floating activator waves-effect waves-light darken-2 right">
+					<i class="mdi-action-perm-identity"></i>
+				</a>
+			</div>
+			</div>
+		</div>
+		<div class="card-reveal">
+			<p>
+				<span class="card-title grey-text text-darken-4">
+					{{manager.managerName}}
+					<i class="mdi-navigation-close right"></i>
+				</span>
+				<span>
+					<i class="mdi-action-perm-identity cyan-text text-darken-2"></i>
+					Project Manager
+				</span>
+			</p>
+
+			<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+			
+			<p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+			<p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+			<p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1993</p>
+			<p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+		</div>
+	</div>
+	<!-- Status -->
+	<div id="profile-page-wall-share" class="row">
+		<div class="col s12">
+		<ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
+			<li class="tab col s3">
+				<a class="white-text waves-effect waves-light active" href="#UpdateStatus">
+					<i class="mdi-editor-border-color"></i> Update Status
+				</a>
+			</li>
+			<li class="tab col s3">
+				<a class="white-text waves-effect waves-light" href="#AddPhotos">
+					<i class="mdi-image-camera-alt"></i> Add Photos
+				</a>
+			</li>
+			<li class="tab col s3">
+				<a class="white-text waves-effect waves-light" href="#CreateAlbum">
+					<i class="mdi-image-photo-album"></i> 
+					Create Album
+				</a>
+			</li>                      
+		<div class="indicator" style="right: 343px; left: 0px;"></div></ul>
+		<!-- UpdateStatus-->
+		<div id="UpdateStatus" class="tab-content col s12  grey lighten-4" style="display: block;">
+			<div class="row">
+			<div class="col s2">
+				<img src="http://localhost:5000/images/User-Icon.png" alt="" class="circle responsive-img valign profile-image-post">
+			</div>
+			<div class="input-field col s10">
+				<textarea id="textarea" row="2" class="materialize-textarea"></textarea>
+				<label for="textarea" class="">What's on your mind?</label>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col s12 m6 share-icons">
+				<a ><i class="mdi-image-camera-alt"></i></a>
+				<a ><i class="mdi-action-account-circle"></i></a>
+				<a ><i class="mdi-hardware-keyboard-alt"></i></a>
+				<a ><i class="mdi-communication-location-on"></i></a>
+			</div>
+			<div class="col s12 m6 right-align">
+				<!-- Dropdown Trigger -->
+				<a class="dropdown-button btn"  data-activates="profliePost">
+					<i class="mdi-action-language"></i> Public</a>
+					<ul id="profliePost" class="dropdown-content">
+						<li><a ><i class="mdi-action-language"></i> Public</a></li>
+						<li><a ><i class="mdi-action-face-unlock"></i> Friends</a></li>                              
+						<li><a ><i class="mdi-action-lock-outline"></i> Only Me</a></li>
+					</ul>
+				<a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
+			</div>
+			</div>
+		</div>
+		<!-- AddPhotos -->
+		<div id="AddPhotos" class="tab-content col s12  grey lighten-4" style="display: none;">
+			<div class="row">
+			<div class="col s2">
+				<img src="http://localhost:5000/images/User-Icon.png" alt="" class="circle responsive-img valign profile-image-post">
+			</div>
+			<div class="input-field col s10">
+				<textarea id="textarea" row="2" class="materialize-textarea"></textarea>
+				<label for="textarea" class="">Share your favorites photos!</label>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col s12 m6 share-icons">
+				<a ><i class="mdi-image-camera-alt"></i></a>
+				<a ><i class="mdi-action-account-circle"></i></a>
+				<a ><i class="mdi-hardware-keyboard-alt"></i></a>
+				<a ><i class="mdi-communication-location-on"></i></a>
+			</div>
+			<div class="col s12 m6 right-align">
+				<!-- Dropdown Trigger -->
+				<a class="dropdown-button btn"  data-activates="profliePost2">
+					<i class="mdi-action-language"></i> 
+					Public
+				</a>
+				<ul id="profliePost2" class="dropdown-content">
+					<li><a ><i class="mdi-action-language"></i> Public</a></li>
+					<li><a ><i class="mdi-action-face-unlock"></i> Friends</a></li>                              
+					<li><a ><i class="mdi-action-lock-outline"></i> Only Me</a></li>
+				</ul>
+				<a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
+			</div>
+			</div>
+		</div>
+		<!-- CreateAlbum -->
+		<div id="CreateAlbum" class="tab-content col s12  grey lighten-4" style="display: none;">
+			<div class="row">
+			<div class="col s2">
+				<img src="http://localhost:5000/images/User-Icon.png" alt="" class="circle responsive-img valign profile-image-post">
+			</div>
+			<div class="input-field col s10">
+				<textarea id="textarea" row="2" class="materialize-textarea"></textarea>
+				<label for="textarea" class="">Create awesome album.</label>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col s12 m6 share-icons">
+				<a ><i class="mdi-image-camera-alt"></i></a>
+				<a ><i class="mdi-action-account-circle"></i></a>
+				<a ><i class="mdi-hardware-keyboard-alt"></i></a>
+				<a ><i class="mdi-communication-location-on"></i></a>
+			</div>
+			<div class="col s12 m6 right-align">
+				<!-- Dropdown Trigger -->
+				<a class="dropdown-button btn"  data-activates="profliePost3"><i class="mdi-action-language"></i> Public</a><ul id="profliePost3" class="dropdown-content">
+					<li><a ><i class="mdi-action-language"></i> Public</a></li>
+					<li><a ><i class="mdi-action-face-unlock"></i> Friends</a></li>                              
+					<li><a ><i class="mdi-action-lock-outline"></i> Only Me</a></li>
+				</ul>
+				<a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- -->
+</div>

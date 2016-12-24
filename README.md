@@ -1,3 +1,23 @@
+#  Author 
+**Andrew kralovec**, email: [akrala@yahoo.com](mailto:akrala@yahoo.com)
+
+# About
+EFantasySports is a ASP.NET CORE application with c# for the back end and Angular 2 with typescript for the front end. 
+The client side code is located under the ClientApp folder in the root directory  
+Webpack is being used for building and bundling client-side resources.    
+Bootstrap is used for layout and styling.  
+EFantasySports has migrated from Sqlite to MySQL to manager its databases. EFantasySports includes the asp.net identity framework to model and maintain the databases. The old databases can be found in the Databases folder for referance. 
+Vast amount of other improvements will be made, such as hashing passwords, storing tokens, ect.     
+X-unit is used for unit testing.  
+
+# Start EFantasySports 
+npm install
+dotnet restore
+dotnet run 
+
+
+## ASP.NET CORE Information 
+
 ## How to
 
 *   [Add a Controller and View](https://go.microsoft.com/fwlink/?LinkID=398600)
