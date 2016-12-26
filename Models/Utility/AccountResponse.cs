@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace EFantasySports.Models.Utility
 {
+    // Account response extenstion 
     public class AccountResponse : Response {
         public AccountResponse(bool succeeded, string message)
             :base(succeeded) {

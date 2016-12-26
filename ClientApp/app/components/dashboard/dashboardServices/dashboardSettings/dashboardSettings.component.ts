@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { DashboardSettingsService } from './dashboardTeam.service';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { DashboardSettingsService } from './dashboardSettings.service';
 import { Manager } from '../../../../models/manager';
 
 @Component({
@@ -10,10 +11,17 @@ import { Manager } from '../../../../models/manager';
 })
 export class DashboardSettingsComponent implements OnInit {
     private manager:Manager = null; 
-    constructor(private ds:DashboardSettingsService){
+    private editable:boolean = false; 
+    private managerForm: FormGroup;
+    constructor(private fb: FormBuilder, private ds:DashboardSettingsService){
 
     }
     ngOnInit(){
+        // Set form
+        this.managerForm = new FormGroup({
+            managerName: new FormControl('',[Validators.required])
+        });
+        // Get info
         this.ds.getUserInfo()
         .subscribe((response:any) => {
             console.log("Response:");
@@ -25,5 +33,14 @@ export class DashboardSettingsComponent implements OnInit {
         },() => 
             console.log("Request Finished")
         );
+    }
+    edit():void {
+        this.editable = !this.editable
+    }
+    updateManager(manager: Manager, isValid: boolean) {
+        if(isValid){
+            this.ds.updateManager(manager); 
+            this.editable = false; 
+        }
     }
 }

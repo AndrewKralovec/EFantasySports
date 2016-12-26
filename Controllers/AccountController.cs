@@ -12,6 +12,7 @@ namespace EFantasySports.Controllers
     [Route("api/[controller]")]
     public class AccountController : Controller {
         // Account services 
+        // Convert Json responses to a generic class later 
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ILogger logger;

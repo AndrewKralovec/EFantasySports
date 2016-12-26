@@ -171,5 +171,60 @@
 		</div>
 		</div>
 	</div>
-	<!-- -->
+	<!-- Profile card -->
+	<div class="row" *ngIf="!editable">
+		<div class="card" id="profile-card">
+			<div class="card-image waves-effect waves-block waves-light">
+				<span class="badge red white-text">Next Team</span>
+				<img alt="user background" class="activator" src="{{'Card-Background.jpg' | imageSrc}}">
+			</div>
+			<div class="card-content">
+				<img alt="" class="circle responsive-img activator card-profile-image" src="{{'User-Icon.png' | imageSrc}}">
+				<a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right" (click)="edit()" >
+					<i class="large material-icons">mode_edit</i>
+				</a> 
+				<span class="card-title activator grey-text text-darken-4">Team Manager</span>
+				<p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i>{{manager.managerName}}</p>
+				<p><i class="mdi-communication-email cyan-text text-darken-2"></i> manager@domain.com</p>
+			</div>
+			<div class="card-reveal">
+				<span class="card-title grey-text text-darken-4">
+					Team Manager 
+					<i class="mdi-navigation-close right"></i>
+				</span>
+				<p>Manager States</p>
+				<p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i>{{manager.managerName}}</p>
+				<p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+				<p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+				<p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+				<p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
+			</div>
+		</div>
+	</div>
+	<!-- User form -->
+	<div class="row" *ngIf="editable">
+		<div class="col s12 m12 l6">
+			<div class="card-panel">
+				<h4 class="header2">Form with User info</h4>
+				<div class="row">
+					<form class="col s12" [formGroup]="managerForm" novalidate (ngSubmit)="updateManager(managerForm.value, managerForm.valid)">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">perm_identity</i> 
+								<input id="name3" type="text" value="{{manger.managerName}}" formControlName="managerName"> 
+								<label class="" for="first_name">Name</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="row">
+								<div class="input-field col s12">
+									<button class="btn waves-effect waves-light col s12" type="submit">Update</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
