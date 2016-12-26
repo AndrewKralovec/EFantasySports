@@ -2,7 +2,7 @@
     <nav role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" href="/" class="brand-logo">
-                Some Title 
+                EFantasySports 
                 <i class="material-icons left hide-on-med-and-down">apps</i>
             </a>
             <ul class="right" [ngSwitch]="ls.isLoggedIn()">
@@ -27,10 +27,14 @@
                 </template>
             </ul>
             <ul class="right hide-on-med-and-down">
-                <li id="timer-tab"><a href="">Tab 1</a></li>
-                <li id="stats-tab"><a href="">Tab 2</a></li>
-                <li id="graphs-tab"><a href="">Tab 3</a></li>
-                <li><a href="" data-activates="dropdown" class="dropdown-button">Tab 4<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li id="timer-tab"><a>About</a></li>
+                <li id="stats-tab"><a>How To</a></li>
+                <li id="graphs-tab"><a>Support</a></li>
+                <li>
+                    <a href="" data-activates="dropdown" class="dropdown-button">
+                        Services<i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

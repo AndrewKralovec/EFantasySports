@@ -8,12 +8,19 @@ Webpack is being used for building and bundling client-side resources.
 Bootstrap is used for layout and styling.  
 EFantasySports has migrated from Sqlite to MySQL to manager its databases. EFantasySports includes the asp.net identity framework to model and maintain the databases. The old databases can be found in the Databases folder for referance. 
 Vast amount of other improvements will be made, such as hashing passwords, storing tokens, ect.     
-X-unit is used for unit testing.  
+X-unit is used for backend unit testing.  
+Karma for front end unit testing.  
+
+# Build Databases
+Migrations should have been downloaded. Configure the database connections in appsettings.json to fit your database information.  
+Create and udpate the databases with the following commands  
+dotnet ef migrations add InitialCreate -c <code> dbcontextname.cs <code>
+dotnet ef database update -c <code> dbcontextname.cs <code>
 
 # Start EFantasySports 
-npm install
-dotnet restore
-dotnet run 
+npm install  
+dotnet restore  
+dotnet run  
 
 
 ## ASP.NET CORE Information 
