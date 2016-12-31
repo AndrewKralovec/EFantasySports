@@ -27,7 +27,9 @@
     "Microsoft.EntityFrameworkCore.Tools": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    }, 
+    "xunit": "2.1.0",
+    "dotnet-test-xunit": "1.0.0-rc2-build10025"
   },
 
   "tools": {
@@ -89,5 +91,6 @@
 
   "tooling": {
     "defaultNamespace": "EFantasySports"
-  }
+  }, 
+  "testRunner": "xunit"
 }
