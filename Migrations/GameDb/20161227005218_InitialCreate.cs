@@ -65,6 +65,28 @@ namespace EFantasySports.Migrations.GameDb
                 });
 
             migrationBuilder.CreateTable(
+                name: "Schedules",
+                columns: table => new
+                {
+                    ScheduleID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AwayID = table.Column<int>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    HomeID = table.Column<int>(nullable: true),
+                    LeagueID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schedules", x => x.ScheduleID);
+                    table.ForeignKey(
+                        name: "FK_Schedules_Leagues_LeagueID",
+                        column: x => x.LeagueID,
+                        principalTable: "Leagues",
+                        principalColumn: "LeagueID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Teams",
                 columns: table => new
                 {
@@ -126,6 +148,21 @@ namespace EFantasySports.Migrations.GameDb
                 column: "TeamID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Schedules_AwayID",
+                table: "Schedules",
+                column: "AwayID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Schedules_HomeID",
+                table: "Schedules",
+                column: "HomeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Schedules_LeagueID",
+                table: "Schedules",
+                column: "LeagueID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Teams_LeagueID",
                 table: "Teams",
                 column: "LeagueID");
@@ -140,6 +177,22 @@ namespace EFantasySports.Migrations.GameDb
                 name: "FK_DraftedPlayers_Teams_TeamID",
                 table: "DraftedPlayers",
                 column: "TeamID",
+                principalTable: "Teams",
+                principalColumn: "TeamID",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Schedules_Teams_AwayID",
+                table: "Schedules",
+                column: "AwayID",
+                principalTable: "Teams",
+                principalColumn: "TeamID",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Schedules_Teams_HomeID",
+                table: "Schedules",
+                column: "HomeID",
                 principalTable: "Teams",
                 principalColumn: "TeamID",
                 onDelete: ReferentialAction.Restrict);
@@ -165,6 +218,9 @@ namespace EFantasySports.Migrations.GameDb
 
             migrationBuilder.DropTable(
                 name: "DraftedPlayers");
+
+            migrationBuilder.DropTable(
+                name: "Schedules");
 
             migrationBuilder.DropTable(
                 name: "Players");

@@ -47,9 +47,7 @@ namespace EFantasySports.Controllers
                     result = new GameResponse(false, ex.ToString()); 
                 }
             }
-            return Json(new {
-                    Response = result
-            });
+            return Json(new {Response = result});
         }
     }
 }

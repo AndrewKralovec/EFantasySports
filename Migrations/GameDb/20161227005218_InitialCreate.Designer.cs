@@ -8,7 +8,7 @@ using EFantasySports.Data;
 namespace EFantasySports.Migrations.GameDb
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20161209154802_InitialCreate")]
+    [Migration("20161227005218_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,6 +83,30 @@ namespace EFantasySports.Migrations.GameDb
                     b.ToTable("Players");
                 });
 
+            modelBuilder.Entity("EFantasySports.Models.Game.Schedule", b =>
+                {
+                    b.Property<int>("ScheduleID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("AwayID");
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<int?>("HomeID");
+
+                    b.Property<int>("LeagueID");
+
+                    b.HasKey("ScheduleID");
+
+                    b.HasIndex("AwayID");
+
+                    b.HasIndex("HomeID");
+
+                    b.HasIndex("LeagueID");
+
+                    b.ToTable("Schedules");
+                });
+
             modelBuilder.Entity("EFantasySports.Models.Game.Team", b =>
                 {
                     b.Property<int>("TeamID")
@@ -126,6 +150,22 @@ namespace EFantasySports.Migrations.GameDb
                     b.HasOne("EFantasySports.Models.Game.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamID");
+                });
+
+            modelBuilder.Entity("EFantasySports.Models.Game.Schedule", b =>
+                {
+                    b.HasOne("EFantasySports.Models.Game.Team", "Away")
+                        .WithMany()
+                        .HasForeignKey("AwayID");
+
+                    b.HasOne("EFantasySports.Models.Game.Team", "Home")
+                        .WithMany()
+                        .HasForeignKey("HomeID");
+
+                    b.HasOne("EFantasySports.Models.Game.League", "League")
+                        .WithMany()
+                        .HasForeignKey("LeagueID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EFantasySports.Models.Game.Team", b =>

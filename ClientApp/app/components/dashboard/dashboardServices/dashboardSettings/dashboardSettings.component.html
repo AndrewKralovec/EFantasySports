@@ -56,7 +56,7 @@
 		</div>
 	</div>
 	<!-- Status -->
-	<div id="profile-page-wall-share" class="row">
+	<div class="row">
 		<div class="col s12">
 		<ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
 			<li class="tab col s3">
@@ -70,7 +70,7 @@
 				</a>
 			</li>
 			<li class="tab col s3">
-				<a class="white-text waves-effect waves-light" href="#CreateAlbum">
+				<a class="white-text waves-effect waves-light">
 					<i class="material-icon"></i> 
 					Create Album
 				</a>
@@ -160,7 +160,10 @@
 			</div>
 			<div class="col s12 m6 right-align">
 				<!-- Dropdown Trigger -->
-				<a class="dropdown-button btn"  data-activates="profliePost3"><i class="material-icon"></i> Public</a><ul id="profliePost3" class="dropdown-content">
+				<a class="dropdown-button btn"  data-activates="profliePost3">
+					<i class="material-icon"></i> Public
+				</a>
+				<ul id="profliePost3" class="dropdown-content">
 					<li><a ><i class="material-icon"></i> Public</a></li>
 					<li><a ><i class="material-icon"></i> Friends</a></li>                              
 					<li><a ><i class="material-icon"></i> Only Me</a></li>
@@ -211,7 +214,7 @@
 						<div class="row">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">perm_identity</i> 
-								<input id="name3" type="text" value="{{manger.managerName}}" formControlName="managerName"> 
+								<input id="name3" type="text" formControlName="managerName"> 
 								<label class="" for="first_name">Name</label>
 							</div>
 						</div>

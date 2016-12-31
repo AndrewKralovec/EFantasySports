@@ -11,6 +11,7 @@ namespace EFantasySports.Data
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<DraftedPlayer> DraftedPlayers { get; set; }
+        public DbSet<Schedule> Schedules {get;set;}
 
         protected override void OnModelCreating(ModelBuilder builder) {
             builder.Entity<League>().ToTable("Leagues");
@@ -18,6 +19,7 @@ namespace EFantasySports.Data
             builder.Entity<Manager>().ToTable("Managers");
             builder.Entity<Player>().ToTable("Players");
             builder.Entity<DraftedPlayer>().ToTable("DraftedPlayers");
+            builder.Entity<Schedule>().ToTable("Schedules");
         }
     }
 }
