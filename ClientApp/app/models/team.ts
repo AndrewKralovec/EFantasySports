@@ -1,9 +1,13 @@
+import { Player } from './player';
+import { Manager } from './manager';
+import { League } from './league';
 export interface Team {
     teamID:number;
     teamName: string;
-    managerID: number;
-    leagueID: number;
-    league: Object;
-    manager: Object;
-    players: Array<any>; 
+    teamLogo?:string; 
+    managerID?: number;
+    leagueID?: number;
+    league?: League;
+    manager?: Manager;
+    players?: Array<Player>; 
 }

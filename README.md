@@ -12,10 +12,12 @@ X-unit is used for backend unit testing.
 Karma for front end unit testing.  
 
 # Build Databases
+Front end developers can use mock data instead of building the database  
 Migrations should have been downloaded. Configure the database connections in appsettings.json to fit your database information.  
 Create and udpate the databases with the following commands  
-dotnet ef migrations add InitialCreate -c <code> dbcontextname.cs <code>
-dotnet ef database update -c <code> dbcontextname.cs <code>
+dotnet ef migrations add InitialCreate -c <code> dbcontextname </code>  
+dotnet ef database update -c <code> dbcontextname </code>  
+
 
 # Start EFantasySports 
 npm install  

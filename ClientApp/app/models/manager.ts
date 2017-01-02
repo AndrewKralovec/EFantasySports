@@ -1,6 +1,6 @@
 import { Team } from './team';
 export interface Manager {
-    id:number; 
+    managerID:number; 
     managerName:string; 
     teamID?:number; 
     team?:Team; 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardLeagueService } from './dashboardLeague.service';
+import { League } from '../../../../models/league';
 import 'rxjs/add/operator/map'; 
 
 @Component({
@@ -9,7 +10,7 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./dashboardLeague.component.css']
 })
 export class DashboardLeagueComponent implements OnInit{
-    private league:any = null; 
+    private league:League = null; 
     constructor(private dl:DashboardLeagueService){
 
     }

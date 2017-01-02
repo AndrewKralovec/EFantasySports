@@ -10,7 +10,7 @@
             <div class="col s12">
                 <div class="card">
                     <div class="card-image">
-                        <img src="http://localhost:5000/images/Team-Logo.jpeg">
+                        <img src="{{team.teamLogo | imageSrc}}">
                     </div>
                     <div class="card-content teal">
                         <span>
@@ -70,9 +70,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let tp of team.players">
-                    <td>{{tp.player.playerID}}</td>
-                    <td>{{tp.player.lastName}}  {{tp.player.firstName}}</td>
-                    <td>{{tp.player.postion}}</td>
+                    <td>{{tp.playerID}}</td>
+                    <td>{{tp.lastName}}  {{tp.firstName}}</td>
+                    <td>{{tp.postion}}</td>
                 </tr>
             <tbody>
         </table>
