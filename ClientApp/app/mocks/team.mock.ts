@@ -2,7 +2,7 @@ import { Team } from '../models/team';
 export const MockTeam:Team = { 
     teamID: 1, 
     teamName:"Lions", 
-    teamLogo:"Team-Logo.jpeg", 
+    teamLogo:"Lions-Team-Logo.gif", 
     managerID: 1,
     leagueID: 1, 
     league: {

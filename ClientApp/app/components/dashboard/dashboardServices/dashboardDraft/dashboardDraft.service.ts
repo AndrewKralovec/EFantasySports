@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'; 
 import { Players } from '../../../../mocks/players.mock';
 const mock = Players; 
+import { MockTeams } from '../../../../mocks/teams.mock';
+const nextMock = MockTeams;
 
 @Injectable()
 export class DashboardDraftService {
@@ -18,6 +20,15 @@ export class DashboardDraftService {
             }, 500);
         });
     }
+    getTeams() {
+        return Observable.create((observer: any) => {
+            setTimeout(() => {
+                observer.next(nextMock);
+                observer.complete();
+            }, 500);
+        });
+    }
+
     /*
     getPlayers() {
         let headers = new Headers({ 'Content-Type': 'application/json' });
