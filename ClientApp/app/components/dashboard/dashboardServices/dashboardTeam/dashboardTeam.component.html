@@ -2,79 +2,95 @@
     <loader-component></loader-component>
 </div>
 <div class="row" *ngIf="team">
-    <div class="col s12">
-        Team Information
-    </div>
-    <div class="col s4">
-        <div class="row">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{team.teamLogo | imageSrc}}">
+    <div class="row">
+        <div class="col s6 m6">
+            <div class="row team-card">
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{team.teamLogo | imageSrc}}">
+                        </div>
+                        <div class="card-content teal">
+                            <span>
+                                Possilble Team information
+                            </span>
+                        </div>
+                        <div class="card-action center">
+                            <a href="#">{{ team.manager.managerName }}</a>
+                        </div>
                     </div>
-                    <div class="card-content teal">
-                        <span>
-                            Possilble Team information
-                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 m6">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card-header teal">
+                        <div class="card-title">
+                            <h4 class="flight-card-title white-text">Record</h4>
+                        </div>
                     </div>
-                    <div class="card-action center">
-                        <a href="#">{{ team.manager.managerName }}</a>
+                    <div class="card-panel">
+                        <h3 class="">
+                            0-0
+                        </h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col s4">
-        <ul class="collection with-header">
-            <li class="collection-header">
-                <h4>Something</h4>
-            </li>
-            <li class="collection-item">
-                Thing
-            </li>
-            <li class="collection-item">
-                Thing
-            </li>
-            <li class="collection-item">
-                Thing
-            </li>
-        </ul>
-    </div>
-    <div class="col s4">
-        <div class="row">
-            <div class="col s12">
-                <div class="card-header teal">
-                    <div class="card-title">
-                        <h4 class="flight-card-title white-text">Record</h4>
-                    </div>
+    <div class="row">
+        <div class="col s6 m6">
+            <ul id="issues-collection" class="collection">
+                <li class="collection-item avatar">
+                    <i class="material-icons circle red darken-2">people</i>
+                    <span class="collection-header">
+                        Line up
+                    </span>
+                    <p>Current Players</p>
+                </li>
+                <div class="row lineUp-list">
+                    <li class="collection-item" *ngFor="let player of team.lineUp">
+                        <div class="row">
+                            <div class="col s7">
+                                <p class="collections-title">
+                                    <strong>{{player.postion}}</strong>
+                                </p>
+                                <p class="collections-content">{{player.lastName}}  {{player.firstName}}</p>
+                            </div>
+                            <div class="col s2">
+                                <span class="task-cat pink accent-2">P1</span>
+                            </div>
+                            <div class="col s3">
+                                <div class="progress">
+                                        <div class="determinate" style="width: 50%"></div>   
+                                </div>                                                
+                            </div>
+                        </div>
+                    </li>
                 </div>
-                <div class="card-panel">
-                    <h3 class="">
-                        0-0
-                    </h3>
-                </div>
-            </div>
+            </ul>
         </div>
-    </div>
-    <div class="col s12">
-        <h3>
-            Players
-        </h3>
-        <table class="highlight responsive-table">
-            <thead>
-                <tr>
-                    <th data-field="id">ID</th>
-                    <th data-field="name">Name</th>
-                    <th data-field="postion">Postion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let tp of team.players">
-                    <td>{{tp.playerID}}</td>
-                    <td>{{tp.lastName}}  {{tp.firstName}}</td>
-                    <td>{{tp.postion}}</td>
-                </tr>
-            <tbody>
-        </table>
+        <div class="col s6 m6">
+            <h3>
+                Players
+            </h3>
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th data-field="id">ID</th>
+                        <th data-field="name">Name</th>
+                        <th data-field="postion">Postion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tp of team.players">
+                        <td>{{tp.playerID}}</td>
+                        <td>{{tp.lastName}}  {{tp.firstName}}</td>
+                        <td>{{tp.postion}}</td>
+                    </tr>
+                <tbody>
+            </table>
+        </div>
     </div>
 </div>

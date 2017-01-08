@@ -1,0 +1,7 @@
+.team-card{
+    width:300px
+}
+.lineUp-list{
+    height: 500px;
+    overflow: auto;
+}

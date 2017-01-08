@@ -10,4 +10,5 @@ export interface Team {
     league?: League;
     manager?: Manager;
     players?: Array<Player>; 
+    lineUp?:any;
 }
